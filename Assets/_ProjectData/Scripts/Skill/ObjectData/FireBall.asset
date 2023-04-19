@@ -1,0 +1,187 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea33c6ce440c6ae4da7033ba57e31d0c, type: 3}
+  m_Name: FireBall
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 193226, guid: ed28e53c93fc7d2449d7c68bb8409223, type: 3}
+    - {fileID: 6936578922766273654, guid: 68541933278367a419a8da8a6aadff93, type: 3}
+    - {fileID: 8300000, guid: 424b9d6ffda603e4fb83b922a3b30ff7, type: 3}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: Event
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[SkillEvent, Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 1|OnUseSkill, Assembly-CSharp
+    - Name: events
+      Entry: 7
+      Data: 2|System.Collections.Generic.List`1[[CustomBehaviour, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: 3|FireProjectile, Assembly-CSharp
+    - Name: projectilePrefab
+      Entry: 10
+      Data: 0
+    - Name: projectileCount
+      Entry: 3
+      Data: 1
+    - Name: delayEachProjectile
+      Entry: 4
+      Data: 0.5
+    - Name: duration
+      Entry: 4
+      Data: 2
+    - Name: speed
+      Entry: 4
+      Data: 5
+    - Name: piercingCount
+      Entry: 3
+      Data: 5
+    - Name: explodeOnDestroy
+      Entry: 5
+      Data: true
+    - Name: OnProjectileHit
+      Entry: 7
+      Data: 4|OnProjectileHit, Assembly-CSharp
+    - Name: events
+      Entry: 7
+      Data: 5|System.Collections.Generic.List`1[[CustomBehaviour, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 6|SpawnVFX, Assembly-CSharp
+    - Name: vfxToSpawn
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 7|PlaySound, Assembly-CSharp
+    - Name: clip
+      Entry: 10
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Talent
+      Entry: 7
+      Data: 8|System.Collections.Generic.List`1[[Talent, Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 9|SpecialValueTalent, Assembly-CSharp
+    - Name: addEvent
+      Entry: 5
+      Data: false
+    - Name: AddedEvent
+      Entry: 7
+      Data: 10|System.Collections.Generic.List`1[[SkillEvent, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: specialAttributes
+      Entry: 7
+      Data: 11|System.Collections.Generic.List`1[[AttributeValue, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  id: fireball
+  icon: {fileID: 0}
+  cooldown: 5
+  manacost: 25
+  castTime: 0.5
+  castRange: 1000
+  walkToPoint: 1
+  damageType: 1
+  targetting: 1
+  affectedTargets: 02000000
+  specialAttributes:
+  - key: damage
+    value: 100
+    type: 0
+    isHidden: 0
+  - key: radius
+    value: 500
+    type: 0
+    isHidden: 0
