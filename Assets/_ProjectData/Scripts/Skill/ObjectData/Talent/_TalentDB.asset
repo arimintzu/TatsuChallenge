@@ -13,4 +13,9 @@ MonoBehaviour:
   m_Name: _TalentDB
   m_EditorClassIdentifier: 
   db:
+  - {fileID: 11400000, guid: 59058b6aa0b282b43b7558abfb3f930c, type: 2}
+  - {fileID: 11400000, guid: d1e929c83ff4ad346ac418833dff69bb, type: 2}
+  - {fileID: 11400000, guid: 0a436d601802bc249b117f1469669fc9, type: 2}
+  - {fileID: 11400000, guid: e4e8e09efc9c9fd478812f122a1c02f0, type: 2}
   - {fileID: 11400000, guid: 61b4fab626f46b348a038e1d0bddfb29, type: 2}
+  - {fileID: 11400000, guid: c2ae9893dfe571142bd8a643f898d33d, type: 2}

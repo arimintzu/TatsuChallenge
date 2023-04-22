@@ -65,13 +65,13 @@ MonoBehaviour:
       Data: 4|ReferencedAttribute, Assembly-CSharp
     - Name: inputValue
       Entry: 5
-      Data: true
+      Data: false
     - Name: value
       Entry: 4
       Data: 50
     - Name: key
-      Entry: 6
-      Data: 
+      Entry: 1
+      Data: damage
     - Name: 
       Entry: 8
       Data: 
@@ -391,4 +391,8 @@ MonoBehaviour:
   - 3
   manaCost:
   - 5
-  attributeValues: []
+  attributeValues:
+  - key: damage
+    isHidden: 0
+    value:
+    - 50

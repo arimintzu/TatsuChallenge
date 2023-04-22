@@ -13,6 +13,10 @@ MonoBehaviour:
   m_Name: _SkillDB
   m_EditorClassIdentifier: 
   db:
-  - {fileID: 11400000, guid: 04e212c7e567cd8448628db2514901d8, type: 2}
-  - {fileID: 11400000, guid: 721e7306fde330d41ba447b3c989d62f, type: 2}
   - {fileID: 11400000, guid: 3197b1bf2c60d55488d6b010380f2f55, type: 2}
+  - {fileID: 11400000, guid: 04e212c7e567cd8448628db2514901d8, type: 2}
+  - {fileID: 11400000, guid: c18eaefb564b2674e9901276c1281dd8, type: 2}
+  - {fileID: 11400000, guid: 549e2db0d7a989f47947f40fe67267e6, type: 2}
+  - {fileID: 11400000, guid: 83a759de5264fa14db45262716c39cad, type: 2}
+  - {fileID: 11400000, guid: 5174c2f46a4410e4c834c31f3a327ad8, type: 2}
+  - {fileID: 11400000, guid: 721e7306fde330d41ba447b3c989d62f, type: 2}

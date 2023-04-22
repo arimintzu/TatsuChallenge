@@ -15,8 +15,7 @@ MonoBehaviour:
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
-    ReferencedUnityObjects:
-    - {fileID: 1817797803601600, guid: 46e56f62e4ff899488d1b27766d1eb6d, type: 3}
+    ReferencedUnityObjects: []
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -28,63 +27,50 @@ MonoBehaviour:
         mscorlib
     - Name: 
       Entry: 12
-      Data: 1
+      Data: 3
     - Name: 
       Entry: 7
-      Data: 1|EventModifier, Assembly-CSharp
-    - Name: AddedEvent
+      Data: 1|DefaultValueTalent, Assembly-CSharp
+    - Name: modifiedAttributes
       Entry: 7
-      Data: 2|System.Collections.Generic.List`1[[CustomEvent, Assembly-CSharp]],
+      Data: 2|System.Collections.Generic.List`1[[DefaulAttributeValue, Assembly-CSharp]],
         mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 3|OnUseSkill, Assembly-CSharp
-    - Name: eventRequest
+      Data: 3|DefaulAttributeValue, Assembly-CSharp
+    - Name: key
       Entry: 6
       Data: 
-    - Name: actions
+    - Name: isHidden
+      Entry: 5
+      Data: false
+    - Name: value
       Entry: 7
-      Data: 4|System.Collections.Generic.List`1[[CustomAction, Assembly-CSharp]],
-        mscorlib
+      Data: 4|System.Collections.Generic.List`1[[System.Single, mscorlib]], mscorlib
     - Name: 
       Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 4
       Data: 2
     - Name: 
-      Entry: 7
-      Data: 5|SpawnVFX, Assembly-CSharp
-    - Name: key
-      Entry: 1
-      Data: blinkVFX
-    - Name: priority
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: attributeType
       Entry: 3
-      Data: 0
-    - Name: active
-      Entry: 5
-      Data: true
-    - Name: target
-      Entry: 3
-      Data: 0
-    - Name: spawnedEffect
-      Entry: 10
-      Data: 0
-    - Name: rescale
-      Entry: 5
-      Data: true
-    - Name: scale
-      Entry: 7
-      Data: UnityEngine.Vector3, UnityEngine.CoreModule
+      Data: 1
     - Name: 
-      Entry: 4
-      Data: 3
+      Entry: 8
+      Data: 
     - Name: 
-      Entry: 4
-      Data: 3
-    - Name: 
-      Entry: 4
-      Data: 3
+      Entry: 13
+      Data: 
     - Name: 
       Entry: 8
       Data: 
@@ -93,75 +79,88 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 6|AOESingleDamage, Assembly-CSharp
-    - Name: key
-      Entry: 6
-      Data: 
-    - Name: priority
-      Entry: 3
-      Data: 0
-    - Name: active
-      Entry: 5
-      Data: true
-    - Name: target
-      Entry: 3
-      Data: 0
-    - Name: damage
+      Data: 5|SpecialValueTalent, Assembly-CSharp
+    - Name: specialAttributes
       Entry: 7
-      Data: 7|ReferencedAttribute, Assembly-CSharp
-    - Name: inputValue
-      Entry: 5
-      Data: false
-    - Name: value
-      Entry: 4
-      Data: 0
-    - Name: key
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: targetCount
-      Entry: 7
-      Data: 8|ReferencedAttribute, Assembly-CSharp
-    - Name: inputValue
-      Entry: 5
-      Data: false
-    - Name: value
-      Entry: 4
-      Data: 0
-    - Name: key
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: delayStrike
-      Entry: 4
-      Data: 0.1
-    - Name: HitEvent
-      Entry: 7
-      Data: 9|OnHit, Assembly-CSharp
-    - Name: eventRequest
-      Entry: 6
-      Data: 
-    - Name: actions
-      Entry: 7
-      Data: 10|System.Collections.Generic.List`1[[CustomAction, Assembly-CSharp]],
+      Data: 6|System.Collections.Generic.List`1[[AttributeValue, Assembly-CSharp]],
         mscorlib
     - Name: 
       Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 7|AttributeValue, Assembly-CSharp
+    - Name: key
+      Entry: 1
+      Data: damage
+    - Name: isHidden
+      Entry: 5
+      Data: false
+    - Name: value
+      Entry: 7
+      Data: 8|System.Collections.Generic.List`1[[System.Single, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 150
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 9|StatsTalent, Assembly-CSharp
+    - Name: statsAdded
+      Entry: 7
+      Data: 10|System.Collections.Generic.List`1[[StatAttributeValue, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 11|StatAttributeValue, Assembly-CSharp
+    - Name: key
+      Entry: 6
+      Data: 
+    - Name: isHidden
+      Entry: 5
+      Data: false
+    - Name: value
+      Entry: 7
+      Data: 12|System.Collections.Generic.List`1[[System.Single, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 50
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: stats
+      Entry: 3
       Data: 0
     - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
       Entry: 8
       Data: 
     - Name: 
@@ -179,16 +178,7 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-  id: sonicBomb
-  icon: {fileID: 21300000, guid: fa1e2e0fbf69d4804a326872558cec08, type: 3}
+  id: timeBombMastery
+  icon: {fileID: 21300000, guid: a2af0f3b72d83431ba35eaa1cc13556d, type: 3}
   affectedSkill:
-  - {fileID: 11400000, guid: 3197b1bf2c60d55488d6b010380f2f55, type: 2}
+  - {fileID: 11400000, guid: 721e7306fde330d41ba447b3c989d62f, type: 2}
