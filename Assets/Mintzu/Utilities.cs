@@ -4,6 +4,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using UnityEngine;
 
 public static class Utilities
@@ -88,6 +89,29 @@ public static class Utilities
         {
             if (DestroyerManager.Instance) DestroyerManager.Instance.DoDestroy(target);
         }
+    }
+    public static T CreateObject<T>(T original)
+    {
+        // Create a new instance of the same type as the original object
+        T copy = (T)Activator.CreateInstance(original.GetType());
+        return copy;
+    }
+    public static T CopyObject<T>(T original)
+    {
+        // Create a new instance of the same type as the original object
+        T copy = (T)Activator.CreateInstance(original.GetType());
+
+        // Get all the fields of the object
+        FieldInfo[] fields = copy.GetType().GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
+
+        // Copy the values of the fields from the original object to the copy
+        foreach (FieldInfo field in fields)
+        {
+            object value = field.GetValue(original);
+            field.SetValue(copy, value);
+        }
+
+        return copy;
     }
     public static string RankPlayer(int rank)
     {

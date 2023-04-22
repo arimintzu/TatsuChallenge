@@ -34,8 +34,6 @@ public enum DefaultAttributeType
 {
     Cooldown,
     ManaCost,
-    CastRange,
-    CastTime,
 }
 
 public enum Stats

@@ -36,4 +36,5 @@ public class TalentData : SerializedScriptableObject
     public Sprite icon;
     [TabGroup("Skill")] public List<SkillData> affectedSkill = new List<SkillData>();
     [TabGroup("Modifier")] public List<TalentModifier> talents = new List<TalentModifier>();
+
 }

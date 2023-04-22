@@ -22,7 +22,7 @@ public class PlayerControl : MonoBehaviour
     {
         if (!input) return;
         var Move = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        //rb.MovePosition(rb.position + input.FrameInput.Move.normalized * moveSpeed * Time.deltaTime);
         rb.velocity = input.FrameInput.Move.normalized * moveSpeed * Time.fixedDeltaTime;
+        //rb.MovePosition(rb.position + input.FrameInput.Move.normalized * moveSpeed * Time.deltaTime);
     }
 }

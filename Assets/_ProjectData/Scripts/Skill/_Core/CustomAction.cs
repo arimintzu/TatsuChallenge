@@ -6,7 +6,9 @@ using UnityEngine;
 using DG.Tweening;
 public abstract class CustomAction
 {
-    public string key;
+    [HorizontalGroup(width: 0.5f)] public string key;
+    [HorizontalGroup(width: 0.25f), HideLabel] public int priority = 0;
+    [HorizontalGroup(width: 0.25f), HideLabel] public bool active = true;
     [ShowIf(nameof(NeedTarget))] public Target target;
 
     public virtual void Do(EventRequest evt) { }
@@ -126,8 +128,8 @@ public class AOEDamage : CustomAction
     public ReferencedAttribute damage = new ReferencedAttribute();
     public ReferencedAttribute radius = new ReferencedAttribute();
     public LayerMask layer;
-    public List<string> collidedTags = new List<string>() { "Enemy" };
     public bool debugArea;
+    public List<string> collidedTags = new List<string>() { "Enemy" };
 
     public OnHit HitEvent = new OnHit(); 
     public override void Do(EventRequest evt)
@@ -174,32 +176,6 @@ public class Damage : CustomAction
         }
     }
 }
-public class Stun : CustomAction
-{
-    public ReferencedAttribute damage = new ReferencedAttribute();
-    
-}
-public class ApplyStatusEffect : CustomAction
-{
-    public StatusEffect statusEffect;
-    public float duration;
-}
-
-public enum ProjectileDirection
-{
-    CasterForward,
-    ToTarget
-}
-public class FireProjectile : CustomAction
-{
-    public GameObject projectilePrefab;
-    public int projectileCount = 1;
-    [SuffixLabel("seconds", overlay: true)] public float delayEachProjectile;
-    [SuffixLabel("seconds", overlay: true)] public float duration;
-    public float speed;
-    public int piercingCount;
-}
-
 public class AOESingleDamage : CustomAction
 {
     public ReferencedAttribute damage = new ReferencedAttribute();
@@ -317,11 +293,4 @@ public class BlinkForward : CustomAction
             rb.MovePosition(newPos);
         }
     }
-}
-
-public class ActivateShield : CustomAction
-{
-    public float absorbValue;
-    public float absorbPercentage;
-    public DamageType absorbedType;
 }

@@ -18,7 +18,7 @@ MonoBehaviour:
     ReferencedUnityObjects:
     - {fileID: 120358, guid: e75cf0dba269ca24e943482d44f3011f, type: 3}
     - {fileID: 137046, guid: d8375ffafb92bd54da393edded479abb, type: 3}
-    - {fileID: 8300000, guid: 2dcd5da12751d034bb710af85ad18450, type: 3}
+    - {fileID: 8300000, guid: 78c1c4dd7e76e0944aa2ce64e5aca494, type: 3}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -50,6 +50,12 @@ MonoBehaviour:
     - Name: key
       Entry: 6
       Data: 
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: active
+      Entry: 5
+      Data: true
     - Name: target
       Entry: 3
       Data: 0
@@ -79,7 +85,7 @@ MonoBehaviour:
       Data: 0
     - Name: key
       Entry: 1
-      Data: count
+      Data: targetCount
     - Name: 
       Entry: 8
       Data: 
@@ -126,6 +132,12 @@ MonoBehaviour:
     - Name: key
       Entry: 6
       Data: 
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: active
+      Entry: 5
+      Data: true
     - Name: target
       Entry: 3
       Data: 1
@@ -134,7 +146,7 @@ MonoBehaviour:
       Data: 1
     - Name: rescale
       Entry: 5
-      Data: false
+      Data: true
     - Name: scale
       Entry: 7
       Data: UnityEngine.Vector3, UnityEngine.CoreModule
@@ -159,6 +171,12 @@ MonoBehaviour:
     - Name: key
       Entry: 6
       Data: 
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: active
+      Entry: 5
+      Data: true
     - Name: target
       Entry: 3
       Data: 1
@@ -206,34 +224,27 @@ MonoBehaviour:
       Data: 
   id: chain_lightning
   icon: {fileID: 21300000, guid: 84356f5da8ae742b09f38e07caa24490, type: 3}
-  damageType: 1
-  targetting: 3
-  affectedTargets: 0200000000000000
+  targeting: 3
   maxLevel: 3
+  castTime: 0
   cooldown:
-  - 10
+  - 3
   - 2
   - 1
   manaCost:
-  - 10
-  - 6
-  - 7
-  castTime: 0
-  castRange:
-  - 0
-  walkToPoint: 1
+  - 5
+  - 4
+  - 3
   attributeValues:
-  - key: damage
-    type: 0
-    isHidden: 0
-    value:
-    - 33
-    - 44
-    - 55
-  - key: count
-    type: 0
+  - key: targetCount
     isHidden: 0
     value:
     - 2
-    - 3
     - 4
+    - 6
+  - key: damage
+    isHidden: 0
+    value:
+    - 50
+    - 70
+    - 100

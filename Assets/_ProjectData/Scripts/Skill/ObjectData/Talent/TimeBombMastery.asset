@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a0fb0a5517ae1fa49b138d8585997863, type: 3}
-  m_Name: SonicBoom
+  m_Name: TimeBombMastery
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects:
-    - {fileID: 8300000, guid: ca29b0e81a3a2f1438b88ce14d688239, type: 3}
+    - {fileID: 1817797803601600, guid: 46e56f62e4ff899488d1b27766d1eb6d, type: 3}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -51,28 +51,116 @@ MonoBehaviour:
         mscorlib
     - Name: 
       Entry: 12
-      Data: 1
+      Data: 2
     - Name: 
       Entry: 7
-      Data: 5|PlaySound, Assembly-CSharp
+      Data: 5|SpawnVFX, Assembly-CSharp
     - Name: key
       Entry: 1
       Data: blinkVFX
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: active
+      Entry: 5
+      Data: true
     - Name: target
       Entry: 3
       Data: 0
-    - Name: channel
-      Entry: 3
-      Data: 0
-    - Name: clip
+    - Name: spawnedEffect
       Entry: 10
       Data: 0
-    - Name: modifyDb
+    - Name: rescale
+      Entry: 5
+      Data: true
+    - Name: scale
+      Entry: 7
+      Data: UnityEngine.Vector3, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 3
+    - Name: 
+      Entry: 4
+      Data: 3
+    - Name: 
+      Entry: 4
+      Data: 3
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 6|AOESingleDamage, Assembly-CSharp
+    - Name: key
+      Entry: 6
+      Data: 
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: active
+      Entry: 5
+      Data: true
+    - Name: target
+      Entry: 3
+      Data: 0
+    - Name: damage
+      Entry: 7
+      Data: 7|ReferencedAttribute, Assembly-CSharp
+    - Name: inputValue
       Entry: 5
       Data: false
-    - Name: desiredDb
+    - Name: value
       Entry: 4
-      Data: 1
+      Data: 0
+    - Name: key
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: targetCount
+      Entry: 7
+      Data: 8|ReferencedAttribute, Assembly-CSharp
+    - Name: inputValue
+      Entry: 5
+      Data: false
+    - Name: value
+      Entry: 4
+      Data: 0
+    - Name: key
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: delayStrike
+      Entry: 4
+      Data: 0.1
+    - Name: HitEvent
+      Entry: 7
+      Data: 9|OnHit, Assembly-CSharp
+    - Name: eventRequest
+      Entry: 6
+      Data: 
+    - Name: actions
+      Entry: 7
+      Data: 10|System.Collections.Generic.List`1[[CustomAction, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: 
       Entry: 8
       Data: 
@@ -100,7 +188,7 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  id: fireMastery
+  id: sonicBomb
   icon: {fileID: 21300000, guid: fa1e2e0fbf69d4804a326872558cec08, type: 3}
   affectedSkill:
   - {fileID: 11400000, guid: 3197b1bf2c60d55488d6b010380f2f55, type: 2}

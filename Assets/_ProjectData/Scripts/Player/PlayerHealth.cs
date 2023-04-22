@@ -19,6 +19,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable, IHealable
     [Title("Effects")]
     public Transform hitEffect;
 
+    public System.Action<float> OnHealthUpdate;
     Animator _animator;
     private Collider2D _collider;
     private BaseProps _props;
@@ -108,6 +109,8 @@ public class PlayerHealth : MonoBehaviour, IDamageable, IHealable
 
     public void Heal(float value, bool isPercentage)
     {
+        currentHealth += value;
+        OnHealthUpdate?.Invoke(currentHealth);
         HUDManager.Instance.PopDamage(transform, value, Color.green, 1f);
     }
 }

@@ -10,14 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ea33c6ce440c6ae4da7033ba57e31d0c, type: 3}
-  m_Name: FireBall
+  m_Name: LightTest
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects:
-    - {fileID: 8300000, guid: b7a210df23bd255428bdf4def67109f2, type: 3}
-    - {fileID: 130848, guid: 399bb4dca790fc349936e5daf4f4cf08, type: 3}
+    - {fileID: 120358, guid: e75cf0dba269ca24e943482d44f3011f, type: 3}
+    - {fileID: 137046, guid: d8375ffafb92bd54da393edded479abb, type: 3}
+    - {fileID: 8300000, guid: 2dcd5da12751d034bb710af85ad18450, type: 3}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -60,12 +61,12 @@ MonoBehaviour:
         mscorlib
     - Name: 
       Entry: 12
-      Data: 3
+      Data: 1
     - Name: 
       Entry: 7
-      Data: 4|Damage, Assembly-CSharp
+      Data: 4|ChainDamage, Assembly-CSharp
     - Name: key
-      Entry: 1
+      Entry: 6
       Data: 
     - Name: priority
       Entry: 3
@@ -75,7 +76,7 @@ MonoBehaviour:
       Data: true
     - Name: target
       Entry: 3
-      Data: 1
+      Data: 0
     - Name: damage
       Entry: 7
       Data: 5|ReferencedAttribute, Assembly-CSharp
@@ -84,19 +85,58 @@ MonoBehaviour:
       Data: false
     - Name: value
       Entry: 4
-      Data: 15
+      Data: 0
     - Name: key
       Entry: 1
       Data: damage
     - Name: 
       Entry: 8
       Data: 
+    - Name: targetCount
+      Entry: 7
+      Data: 6|ReferencedAttribute, Assembly-CSharp
+    - Name: inputValue
+      Entry: 5
+      Data: false
+    - Name: value
+      Entry: 4
+      Data: 0
+    - Name: key
+      Entry: 1
+      Data: count
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: delayStrike
+      Entry: 4
+      Data: 0.1
+    - Name: trail
+      Entry: 10
+      Data: 0
+    - Name: rescale
+      Entry: 5
+      Data: true
+    - Name: scale
+      Entry: 7
+      Data: UnityEngine.Vector3, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0.5
+    - Name: 
+      Entry: 4
+      Data: 0.2
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: HitEvent
       Entry: 7
-      Data: 6|OnHit, Assembly-CSharp
+      Data: 7|OnHit, Assembly-CSharp
     - Name: eventRequest
       Entry: 7
-      Data: 7|EventRequest, Assembly-CSharp
+      Data: 8|EventRequest, Assembly-CSharp
     - Name: caster
       Entry: 6
       Data: 
@@ -117,95 +157,17 @@ MonoBehaviour:
       Data: 
     - Name: actions
       Entry: 7
-      Data: 8|System.Collections.Generic.List`1[[CustomAction, Assembly-CSharp]],
+      Data: 9|System.Collections.Generic.List`1[[CustomAction, Assembly-CSharp]],
         mscorlib
     - Name: 
       Entry: 12
-      Data: 1
+      Data: 2
     - Name: 
       Entry: 7
-      Data: 9|IncreaseHealth, Assembly-CSharp
+      Data: 10|SpawnVFX, Assembly-CSharp
     - Name: key
       Entry: 6
       Data: 
-    - Name: priority
-      Entry: 3
-      Data: 0
-    - Name: active
-      Entry: 5
-      Data: true
-    - Name: target
-      Entry: 3
-      Data: 0
-    - Name: healAmount
-      Entry: 7
-      Data: 10|ReferencedAttribute, Assembly-CSharp
-    - Name: inputValue
-      Entry: 5
-      Data: true
-    - Name: value
-      Entry: 4
-      Data: 22
-    - Name: key
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: isPercentage
-      Entry: 5
-      Data: false
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 11|PlaySound, Assembly-CSharp
-    - Name: key
-      Entry: 1
-      Data: 
-    - Name: priority
-      Entry: 3
-      Data: 0
-    - Name: active
-      Entry: 5
-      Data: true
-    - Name: target
-      Entry: 3
-      Data: 1
-    - Name: channel
-      Entry: 3
-      Data: 0
-    - Name: clip
-      Entry: 10
-      Data: 0
-    - Name: modifyDb
-      Entry: 5
-      Data: false
-    - Name: desiredDb
-      Entry: 4
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 12|SpawnVFX, Assembly-CSharp
-    - Name: key
-      Entry: 1
-      Data: Huhu
     - Name: priority
       Entry: 3
       Data: 0
@@ -240,6 +202,48 @@ MonoBehaviour:
       Entry: 8
       Data: 
     - Name: 
+      Entry: 7
+      Data: 11|PlaySound, Assembly-CSharp
+    - Name: key
+      Entry: 6
+      Data: 
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: active
+      Entry: 5
+      Data: true
+    - Name: target
+      Entry: 3
+      Data: 1
+    - Name: channel
+      Entry: 3
+      Data: 0
+    - Name: clip
+      Entry: 10
+      Data: 2
+    - Name: modifyDb
+      Entry: 5
+      Data: false
+    - Name: desiredDb
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
       Entry: 13
       Data: 
     - Name: 
@@ -254,19 +258,19 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  id: fireball
-  icon: {fileID: 21300000, guid: c9250edf4111a480399f5e39edc635f7, type: 3}
-  targeting: 1
+  id: chain_lightningx
+  icon: {fileID: 21300000, guid: 84356f5da8ae742b09f38e07caa24490, type: 3}
+  targeting: 3
   maxLevel: 3
   castTime: 0
   cooldown:
   - 10
-  - 4
-  - 4
+  - 2
+  - 1
   manaCost:
   - 10
-  - 5
-  - 10
+  - 6
+  - 7
   attributeValues:
   - key: damage
     isHidden: 0
@@ -274,3 +278,9 @@ MonoBehaviour:
     - 33
     - 44
     - 55
+  - key: count
+    isHidden: 0
+    value:
+    - 2
+    - 3
+    - 4

@@ -34,27 +34,51 @@ MonoBehaviour:
       Entry: 7
       Data: 1|OnUseSkill, Assembly-CSharp
     - Name: eventRequest
+      Entry: 7
+      Data: 2|EventRequest, Assembly-CSharp
+    - Name: caster
       Entry: 6
+      Data: 
+    - Name: target
+      Entry: 6
+      Data: 
+    - Name: targets
+      Entry: 6
+      Data: 
+    - Name: events
+      Entry: 6
+      Data: 
+    - Name: valueCollection
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
       Data: 
     - Name: actions
       Entry: 7
-      Data: 2|System.Collections.Generic.List`1[[CustomAction, Assembly-CSharp]],
+      Data: 3|System.Collections.Generic.List`1[[CustomAction, Assembly-CSharp]],
         mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 3|AOESingleDamage, Assembly-CSharp
+      Data: 4|AOESingleDamage, Assembly-CSharp
     - Name: key
       Entry: 6
       Data: 
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: active
+      Entry: 5
+      Data: true
     - Name: target
       Entry: 3
       Data: 0
     - Name: damage
       Entry: 7
-      Data: 4|ReferencedAttribute, Assembly-CSharp
+      Data: 5|ReferencedAttribute, Assembly-CSharp
     - Name: inputValue
       Entry: 5
       Data: false
@@ -69,7 +93,7 @@ MonoBehaviour:
       Data: 
     - Name: targetCount
       Entry: 7
-      Data: 5|ReferencedAttribute, Assembly-CSharp
+      Data: 6|ReferencedAttribute, Assembly-CSharp
     - Name: inputValue
       Entry: 5
       Data: false
@@ -87,23 +111,47 @@ MonoBehaviour:
       Data: 0.1
     - Name: HitEvent
       Entry: 7
-      Data: 6|OnHit, Assembly-CSharp
+      Data: 7|OnHit, Assembly-CSharp
     - Name: eventRequest
+      Entry: 7
+      Data: 8|EventRequest, Assembly-CSharp
+    - Name: caster
       Entry: 6
+      Data: 
+    - Name: target
+      Entry: 6
+      Data: 
+    - Name: targets
+      Entry: 6
+      Data: 
+    - Name: events
+      Entry: 6
+      Data: 
+    - Name: valueCollection
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
       Data: 
     - Name: actions
       Entry: 7
-      Data: 7|System.Collections.Generic.List`1[[CustomAction, Assembly-CSharp]],
+      Data: 9|System.Collections.Generic.List`1[[CustomAction, Assembly-CSharp]],
         mscorlib
     - Name: 
       Entry: 12
       Data: 2
     - Name: 
       Entry: 7
-      Data: 8|SpawnVFX, Assembly-CSharp
+      Data: 10|SpawnVFX, Assembly-CSharp
     - Name: key
       Entry: 6
       Data: 
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: active
+      Entry: 5
+      Data: true
     - Name: target
       Entry: 3
       Data: 1
@@ -133,10 +181,16 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 9|PlaySound, Assembly-CSharp
+      Data: 11|PlaySound, Assembly-CSharp
     - Name: key
       Entry: 6
       Data: 
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: active
+      Entry: 5
+      Data: true
     - Name: target
       Entry: 3
       Data: 1
@@ -184,10 +238,9 @@ MonoBehaviour:
       Data: 
   id: lightning_strike
   icon: {fileID: 21300000, guid: b6e135c3e56af4a678b1a8f58ab240e8, type: 3}
-  damageType: 1
-  targetting: 3
-  affectedTargets: 0200000000000000
+  targeting: 3
   maxLevel: 3
+  castTime: 0
   cooldown:
   - 10
   - 4
@@ -196,20 +249,14 @@ MonoBehaviour:
   - 10
   - 5
   - 10
-  castTime: 0
-  castRange:
-  - 1
-  walkToPoint: 1
   attributeValues:
   - key: damage
-    type: 0
     isHidden: 0
     value:
     - 33
     - 44
     - 55
   - key: count
-    type: 0
     isHidden: 0
     value:
     - 2

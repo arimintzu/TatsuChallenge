@@ -19,6 +19,7 @@ public abstract class CustomEvent
         {
             if (act != null)
             {
+                if (!act.active) continue;
                 act.Do(request);
                 if (act is Wait)
                 {
@@ -36,12 +37,12 @@ public abstract class CustomEvent
 public class OnStartSkill : CustomEvent { }
 public class OnUseSkill : CustomEvent { }
 public class OnSkillEnded : CustomEvent { }
-public class OnPlayerTakeDamage : CustomEvent { }
-public class OnPlayerDead : CustomEvent { }
-public class OnPlayerAttack : CustomEvent { }
-public class OnUpgrade : CustomEvent { }
+//public class OnPlayerTakeDamage : CustomEvent { }
+//public class OnPlayerDead : CustomEvent { }
+//public class OnPlayerAttack : CustomEvent { }
+//public class OnUpgrade : CustomEvent { }
 public class OnHit : CustomEvent { }
-public class OnCustomEvent<T> : CustomEvent{ public T param; }
+//public class OnCustomEvent<T> : CustomEvent{ public T param; }
 
 [System.Serializable]
 public class EventRequest

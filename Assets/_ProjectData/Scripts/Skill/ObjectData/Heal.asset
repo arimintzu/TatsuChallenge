@@ -34,27 +34,48 @@ MonoBehaviour:
       Entry: 7
       Data: 1|OnUseSkill, Assembly-CSharp
     - Name: eventRequest
+      Entry: 7
+      Data: 2|EventRequest, Assembly-CSharp
+    - Name: caster
       Entry: 6
+      Data: 
+    - Name: target
+      Entry: 6
+      Data: 
+    - Name: targets
+      Entry: 6
+      Data: 
+    - Name: events
+      Entry: 6
+      Data: 
+    - Name: valueCollection
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
       Data: 
     - Name: actions
       Entry: 7
-      Data: 2|System.Collections.Generic.List`1[[CustomAction, Assembly-CSharp]],
+      Data: 3|System.Collections.Generic.List`1[[CustomAction, Assembly-CSharp]],
         mscorlib
     - Name: 
       Entry: 12
       Data: 3
     - Name: 
       Entry: 7
-      Data: 3|IncreaseHealth, Assembly-CSharp
+      Data: 4|IncreaseHealth, Assembly-CSharp
     - Name: key
       Entry: 6
       Data: 
+    - Name: active
+      Entry: 5
+      Data: true
     - Name: target
       Entry: 3
       Data: 0
     - Name: healAmount
       Entry: 7
-      Data: 4|ReferencedAttribute, Assembly-CSharp
+      Data: 5|ReferencedAttribute, Assembly-CSharp
     - Name: inputValue
       Entry: 5
       Data: false
@@ -75,10 +96,13 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 5|SpawnVFX, Assembly-CSharp
+      Data: 6|SpawnVFX, Assembly-CSharp
     - Name: key
       Entry: 6
       Data: 
+    - Name: active
+      Entry: 5
+      Data: true
     - Name: target
       Entry: 3
       Data: 0
@@ -108,10 +132,13 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 6|PlaySound, Assembly-CSharp
+      Data: 7|PlaySound, Assembly-CSharp
     - Name: key
       Entry: 6
       Data: 
+    - Name: active
+      Entry: 5
+      Data: true
     - Name: target
       Entry: 3
       Data: 0

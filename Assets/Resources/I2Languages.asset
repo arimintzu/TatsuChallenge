@@ -143,6 +143,96 @@ MonoBehaviour:
       - 
       Flags: 000000
       Languages_Touch: []
+    - Term: talent/blinkMastery/name
+      TermType: 0
+      Description: 
+      Languages:
+      - Blink Mastery
+      - 
+      - 
+      Flags: 000000
+      Languages_Touch: []
+    - Term: talent/blinkMastery/desc
+      TermType: 0
+      Description: 
+      Languages:
+      - Reduce cooldown and manacost for Blink
+      - 
+      - 
+      Flags: 000000
+      Languages_Touch: []
+    - Term: talent/fireballMastery/name
+      TermType: 0
+      Description: 
+      Languages:
+      - Fireball Mastery
+      - 
+      - 
+      Flags: 000000
+      Languages_Touch: []
+    - Term: talent/fireballMastery/desc
+      TermType: 0
+      Description: 
+      Languages:
+      - Increase damage of FireBall
+      - 
+      - 
+      Flags: 000000
+      Languages_Touch: []
+    - Term: talent/manaMastery/name
+      TermType: 0
+      Description: 
+      Languages:
+      - Mana Mastery
+      - 
+      - 
+      Flags: 000000
+      Languages_Touch: []
+    - Term: talent/manaMastery/desc
+      TermType: 0
+      Description: 
+      Languages:
+      - Bonus mana cost reduction percentage for all skill
+      - 
+      - 
+      Flags: 000000
+      Languages_Touch: []
+    - Term: talent/cooldownMastery/name
+      TermType: 0
+      Description: 
+      Languages:
+      - Cooldown Mastery
+      - 
+      - 
+      Flags: 000000
+      Languages_Touch: []
+    - Term: talent/cooldownMastery/desc
+      TermType: 0
+      Description: 
+      Languages:
+      - Bonus cooldown reduction percentage for all skill
+      - 
+      - 
+      Flags: 000000
+      Languages_Touch: []
+    - Term: talent/sonicBomb/name
+      TermType: 0
+      Description: 
+      Languages:
+      - Sonic Bomb
+      - 
+      - 
+      Flags: 000000
+      Languages_Touch: []
+    - Term: talent/sonicBomb/desc
+      TermType: 0
+      Description: 
+      Languages:
+      - Create a bomb AOE damage when using Blink
+      - 
+      - 
+      Flags: 000000
+      Languages_Touch: []
     CaseInsensitiveTerms: 0
     OnMissingTranslation: 1
     mTerm_AppName: 
@@ -161,7 +251,7 @@ MonoBehaviour:
     Google_WebServiceURL: https://script.google.com/macros/s/AKfycbxxGWPa-utsd8b3Vg15Z1tI-dW54wlbsT2CQ1O2lvryKtw3tJuj3alCHmY6RFDhEs-L/exec
     Google_SpreadsheetKey: 1_KPYMj6M9y4Aw9XhyajU3kQCI_6Y2h9GOcBJaGC9sDs
     Google_SpreadsheetName: I2Loc TatsuChallenge Localization
-    Google_LastUpdatedVersion: 1682047933208
+    Google_LastUpdatedVersion: 1682144053789
     Google_Password: change_this
     GoogleUpdateFrequency: 3
     GoogleInEditorCheckFrequency: 2

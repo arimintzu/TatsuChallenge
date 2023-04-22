@@ -26,8 +26,10 @@ public class PlayerSkill : MonoBehaviour
     }
 
     [Title("Skill and Talents")]
-    public List<SkillData> allSkills;
-    public List<TalentData> allTalents;
+    public SkillDatabase allSkill;
+    public TalentDatabase allTalent;
+    List<SkillData> allSkills { get => allSkill.db; }
+    List<TalentData> allTalents { get => allTalent.db; }
     public float lookRadius = 100;
     public float maxMana = 200f;
     [ReadOnly] public float currentMana;
@@ -55,11 +57,17 @@ public class PlayerSkill : MonoBehaviour
     public TextMeshProUGUI skillCD;
     public TextMeshProUGUI skillCost;
     public TextMeshProUGUI skillLevel;
-    public TextMeshProUGUI currentManaText;
-    public AudioClip skillFailedClip;
 
+    [Title("Etc")]
+    public TextMeshProUGUI currentManaText;
+    public TextMeshProUGUI currentHealthText;
+    public AudioClip skillFailedClip;
+    PlayerHealth playerHealth;
     private void Awake()
     {
+        playerHealth = GetComponent<PlayerHealth>();
+        playerHealth.OnHealthUpdate += SetHealth;
+        SetHealth(playerHealth.maxHealth);
         skillInstances = new List<SkillInstance>();
         talentInstances = new List<TalentInstance>();
         currentIndex = 0;
@@ -69,6 +77,15 @@ public class PlayerSkill : MonoBehaviour
         SetCurrentMana(maxMana);
     }
 
+    private void OnDestroy()
+    {
+        playerHealth.OnHealthUpdate -= SetHealth;
+    }
+
+    void SetHealth(float current)
+    {
+        currentHealthText.text = current.ToString();
+    }
     void SetCurrentMana(float mana)
     {
         currentMana = mana;
@@ -122,7 +139,7 @@ public class PlayerSkill : MonoBehaviour
 
     private void UpdateLevelSkill()
     {
-        var manaCost = skillData.GetManaCost(currentSkillInstance.currentLevel);
+        var manaCost = skillData.GetManaCost(currentSkillInstance.currentLevel) - currentSkillInstance.bonusManacostReduction;
         var manaCostReduce = manaCost * ManaCostReduction / 100f;
 
         manaCost = manaCost - manaCostReduce;
@@ -153,7 +170,7 @@ public class PlayerSkill : MonoBehaviour
     {
         UpdateUISkill();
 
-        if(Input.GetKeyDown(KeyCode.Alpha1))
+        if(Input.GetKeyDown(KeyCode.Q))
         {
             currentIndex++;
             if(Utilities.OutOfIndex(allSkills.Count, currentIndex))
@@ -162,7 +179,7 @@ public class PlayerSkill : MonoBehaviour
             ChangeSkill();
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha2))
+        if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             currentTalentIndex++;
             if (Utilities.OutOfIndex(allTalents.Count, currentTalentIndex))
@@ -180,7 +197,7 @@ public class PlayerSkill : MonoBehaviour
             UpgradeSkill();
         }
 
-        if (Input.GetKeyDown(KeyCode.T))
+        if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             ToggleTalent();
         }
@@ -207,6 +224,13 @@ public class PlayerSkill : MonoBehaviour
         //Reset attr
         addedCooldownReduction = 0;
         addedManaCostReduction = 0;
+
+        foreach (var skillInstance in skillInstances)
+        {
+            skillInstance.bonusCooldownReduction = 0;
+            skillInstance.bonusManacostReduction = 0;
+        }
+
         foreach (var talentInstance in talentInstances)
         {
             if (!talentInstance.isUnlocked) continue;
@@ -215,7 +239,9 @@ public class PlayerSkill : MonoBehaviour
             {
                 foreach (var modifier in findTalent.talents)
                 {
-                    if(modifier is StatsTalent)
+                    float bonusCD = 0;
+                    float bonusMana = 0;
+                    if (modifier is StatsTalent)
                     {
                         var statTalent = (StatsTalent)modifier;
                         foreach (var statAdded in statTalent.statsAdded)
@@ -230,6 +256,43 @@ public class PlayerSkill : MonoBehaviour
                                     addedManaCostReduction += statAdded.GetValue(0);
                                     break;
                             }
+                        }
+                    }
+
+                    else if(modifier is DefaultValueTalent)
+                    {
+                        var defaultTalent = (DefaultValueTalent)modifier;
+                        foreach (var stat in defaultTalent.modifiedAttributes)
+                        {
+                            switch(stat.attributeType)
+                            {
+                                case DefaultAttributeType.Cooldown:
+                                    bonusCD += stat.GetValue(0);
+                                    break;
+
+                                case DefaultAttributeType.ManaCost:
+                                    bonusMana += stat.GetValue(0);
+                                    break;
+                            }
+                        }
+                    }
+
+                    foreach (var skill in findTalent.affectedSkill)
+                    {
+                        var find = skillInstances.Find(x => x.skillID == skill.id);
+                        if (find != null)
+                        {
+                            find.bonusManacostReduction += bonusMana;
+                            find.bonusCooldownReduction += bonusCD;
+                        }
+                        else
+                        {
+                            skillInstances.Add(new SkillInstance()
+                            {
+                                skillID = skillData.id,
+                                bonusCooldownReduction = bonusCD,
+                                bonusManacostReduction = bonusMana
+                            });
                         }
                     }
                 }
@@ -301,22 +364,22 @@ public class PlayerSkill : MonoBehaviour
 
 
 
-        switch (skillData.targetting)
+        switch (skillData.targeting)
         {
-            case Targetting.NearestUnitTarget:
+            case Targeting.NearestUnitTarget:
                 skillData.UseSkill(new EventRequest() { caster = transform, 
                     target = GetClosestEnemy(lookRadius),
                     events = allEvents, 
                     valueCollection = addedValue }, currentSkillInstance.currentLevel);
                 break;
-            case Targetting.RandomUnitInArea:
+            case Targeting.RandomUnitInArea:
                 skillData.UseSkill(new EventRequest() { caster = transform, 
                     target = GetRandomEnemy(lookRadius),
                     events = allEvents,
                     valueCollection = addedValue
                 }, currentSkillInstance.currentLevel);
                 break;
-            case Targetting.AroundCaster:
+            case Targeting.AroundCaster:
                 skillData.UseSkill(new EventRequest()
                 {
                     caster = transform,
@@ -335,7 +398,7 @@ public class PlayerSkill : MonoBehaviour
                 break;
         }
 
-        var manaCost = skillData.GetManaCost(currentSkillInstance.currentLevel);
+        var manaCost = skillData.GetManaCost(currentSkillInstance.currentLevel) - currentSkillInstance.bonusManacostReduction;
         var manaCostReduce = manaCost * ManaCostReduction / 100f;
 
         manaCost = manaCost - manaCostReduce;
@@ -345,14 +408,14 @@ public class PlayerSkill : MonoBehaviour
         if(skill != null)
         {
             skill.lastTimeUsed = Time.time;
-            var cd = skillData.GetCooldown(currentSkillInstance.currentLevel);
+            var cd = skillData.GetCooldown(currentSkillInstance.currentLevel) - currentSkillInstance.bonusCooldownReduction;
             var cdReduce = cd * CooldownReduction / 100f;
             skill.readyTime = Time.time + (cd - cdReduce);
         }
 
         else
         {
-            var cd = skillData.GetCooldown(currentSkillInstance.currentLevel);
+            var cd = skillData.GetCooldown(currentSkillInstance.currentLevel) - currentSkillInstance.bonusCooldownReduction;
             var cdReduce = cd * CooldownReduction / 100f;
             skillInstances.Add(new SkillInstance()
             {
@@ -365,7 +428,7 @@ public class PlayerSkill : MonoBehaviour
 
     public int CanUseSkill(SkillData skillData)
     {
-        var manaCost = skillData.GetManaCost(currentSkillInstance.currentLevel);
+        var manaCost = skillData.GetManaCost(currentSkillInstance.currentLevel) - currentSkillInstance.bonusManacostReduction;
         var manaCostReduce = manaCost * ManaCostReduction / 100f;
 
         manaCost = manaCost - manaCostReduce;
@@ -439,6 +502,9 @@ public class SkillInstance
     public float lastTimeUsed;
     public float readyTime;
     public int currentLevel;
+
+    public float bonusCooldownReduction;
+    public float bonusManacostReduction;
 
     public float GetPercentage(float currentTime)
     {

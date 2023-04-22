@@ -29,7 +29,7 @@ public class SkillData : SerializedScriptableObject
             .Where(x => !x.IsGenericTypeDefinition)
             .Where(x => typeof(CustomEvent).IsAssignableFrom(x));
 
-        q = q.AppendWith(typeof(OnCustomEvent<>).MakeGenericType(typeof(GameObject)));
+        //q = q.AppendWith(typeof(OnCustomEvent<>).MakeGenericType(typeof(GameObject)));
 
         return q;
     }
@@ -37,22 +37,18 @@ public class SkillData : SerializedScriptableObject
     #endregion
     [LabelText("Skill ID")] public string id;
     public Sprite icon;
-    [TabGroup("Combat")] public DamageType damageType;
-    [TabGroup("Combat")] public Targetting targetting;
-    [TabGroup("Combat")] public List<AffectedTarget> affectedTargets;
+    //[TabGroup("Combat")] public DamageType damageType;
+    [TabGroup("Variables")] public Targeting targeting;
+    //[TabGroup("Combat")] public List<AffectedTarget> affectedTargets;
     [TabGroup("Variables"), MinValue(1)] public int maxLevel;
+    [TabGroup("Variables"), SuffixLabel("seconds", overlay: true)] public float castTime; 
     [TabGroup("Variables"), SuffixLabel("seconds", overlay: true)] public List<float> cooldown;
     [TabGroup("Variables")] public List<float> manaCost;
-    [TabGroup("Variables"), SuffixLabel("seconds", overlay: true)] public float castTime; 
-    [TabGroup("Variables"), HideIf(nameof(targetting), Targetting.NoTarget)] public List<float> castRange;
-    [TabGroup("Variables"), HideIf(nameof(targetting), Targetting.NoTarget)] public bool walkToPoint;
     [TabGroup("Variables")] public List<AttributeValue> attributeValues = new List<AttributeValue>();
     [TabGroup("Event"), ListDrawerSettings(ShowIndexLabels = false), TypeFilter(nameof(GetFilteredTypeList))] public List<CustomEvent> Event = new List<CustomEvent>();
 
     public float GetCooldown(int level) => GetValueFromList(cooldown, level);
     public float GetManaCost(int level) => GetValueFromList(manaCost, level);
-    public float GetCastRange(int level) => GetValueFromList(castRange, level);
-
     public float GetValueFromList(List<float> list, int level)
     {
         if (list == null) return 0f;
@@ -92,29 +88,54 @@ public class SkillData : SerializedScriptableObject
     }
     IEnumerator<float> _UseSkillRoutine(EventRequest request)
     {
-        var temporaryEvent = new List<CustomEvent>(Event.ToArray());
-
-        for (int i = 0; i < temporaryEvent.Count; i++)
+        var temporaryEvent = new List<CustomEvent>();
+        for (int i = 0; i < Event.Count; i++)
         {
-            var evt = temporaryEvent[i];
-            for (int j = 0; j < request.events.Count; j++)
+            var evt = Event[i];
+            temporaryEvent.Add(Utilities.CreateObject<CustomEvent>(evt));
+            for (int j = 0; j < evt.actions.Count; j++)
             {
-                var requestedEvent = request.events[j];
+                temporaryEvent[i].actions.Add(Utilities.CopyObject<CustomAction>(evt.actions[j]));
+            }
+        }
 
-                for (int k = 0; k < requestedEvent.actions.Count; k++)
+        var requestedEvent = new List<CustomEvent>();
+        for (int i = 0; i < request.events.Count; i++)
+        {
+            var evt = request.events[i];
+            requestedEvent.Add(Utilities.CreateObject<CustomEvent>(evt));
+            for (int j = 0; j < evt.actions.Count; j++)
+            {
+                requestedEvent[i].actions.Add(Utilities.CopyObject<CustomAction>(evt.actions[j]));
+            }
+        }
+
+        foreach (var evt in requestedEvent)
+        {
+            var type = evt.GetType();
+            var findTempEvent = temporaryEvent.Find(x => x.GetType() == type);
+            if(findTempEvent != null)
+            {
+                for (int i = 0; i < findTempEvent.actions.Count; i++)
                 {
-                    var action = requestedEvent.actions[k];
-                    evt.actions.Add(action);
-                    //var findAct = evt.actions.Find(x => x.key == action.key);
-                    //if(findAct != null)
-                    //{
-                    //    findAct = action;
-                    //}
+                    var tempAct = findTempEvent.actions[i];
+                    var findOnRequested = evt.actions.FindIndex(x => x.key == tempAct.key);
+                    if (findOnRequested != -1)
+                    {
+                        tempAct.active = false;
+                        //tempAct = Utilities.CopyObject<CustomAction>(evt.actions[findOnRequested]);
+                        //evt.actions.RemoveAt(findOnRequested);
+                    }
                 }
             }
         }
 
         var startingSkillEvent = temporaryEvent.FindAll(x => x is OnStartSkill);
+        var tempStartingEvent = request.events.FindAll(x => x is OnStartSkill);
+
+        startingSkillEvent.AddRange(tempStartingEvent);
+        foreach (var skillEvt in startingSkillEvent)
+            skillEvt.actions.OrderBy(x => x.priority);
         foreach (var eachEvent in startingSkillEvent)
         {
             if (eachEvent != null)
@@ -127,7 +148,29 @@ public class SkillData : SerializedScriptableObject
         yield return Timing.WaitForSeconds(castTime);
 
         var useSkillEvent = temporaryEvent.FindAll(x => x is OnUseSkill);
+        var tempUseSkillEvent = request.events.FindAll(x => x is OnUseSkill);
+
+        useSkillEvent.AddRange(tempUseSkillEvent);
+        foreach (var skillEvt in useSkillEvent)
+            skillEvt.actions.OrderBy(x => x.priority);
         foreach (var eachEvent in useSkillEvent)
+        {
+            if (eachEvent != null)
+            {
+                var handler = Timing.RunCoroutine(eachEvent.DoRoutine(request));
+                yield return Timing.WaitUntilDone(handler);
+            }
+        }
+
+        yield return Timing.WaitForOneFrame;
+
+        var endSkillEvent = temporaryEvent.FindAll(x => x is OnSkillEnded);
+        var tempEndSkillEvent = request.events.FindAll(x => x is OnSkillEnded);
+
+        endSkillEvent.AddRange(tempEndSkillEvent);
+        foreach (var skillEvt in endSkillEvent)
+            skillEvt.actions.OrderBy(x => x.priority);
+        foreach (var eachEvent in endSkillEvent)
         {
             if (eachEvent != null)
             {
@@ -142,7 +185,7 @@ public class SkillData : SerializedScriptableObject
 public class AttributeValue
 {
     [PropertyOrder(0), ShowIf(nameof(ShowHidden))] public string key;
-    public ValueType type;
+    //public ValueType type;
     [ShowIf(nameof(ShowHidden))] public bool isHidden;
     [PropertyOrder(99)] public List<float> value = new List<float>();
 
@@ -194,14 +237,14 @@ public enum Target
     Target,
 }
 
-public enum Targetting
+public enum Targeting
 {
     NoTarget, //Instant Cast
     NearestUnitTarget, //Find closest 
     RandomUnitInArea, //Find random in area
     AroundCaster,
-    UnitTarget,//Need to click unit
-    GroundTarget //Ground Target
+    //UnitTarget,//Need to click unit
+    //GroundTarget //Ground Target
 }
 
 public enum ValueType

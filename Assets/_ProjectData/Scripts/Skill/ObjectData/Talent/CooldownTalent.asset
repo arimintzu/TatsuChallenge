@@ -88,5 +88,4 @@ MonoBehaviour:
       Data: 
   id: cooldownMastery
   icon: {fileID: 21300000, guid: f3a851859767547c6b5d9a9d9d995af7, type: 3}
-  affectedSkill:
-  - {fileID: 11400000, guid: 3197b1bf2c60d55488d6b010380f2f55, type: 2}
+  affectedSkill: []
