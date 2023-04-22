@@ -16,9 +16,8 @@ MonoBehaviour:
     SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects:
-    - {fileID: 193226, guid: ed28e53c93fc7d2449d7c68bb8409223, type: 3}
-    - {fileID: 6936578922766273654, guid: 68541933278367a419a8da8a6aadff93, type: 3}
-    - {fileID: 8300000, guid: 424b9d6ffda603e4fb83b922a3b30ff7, type: 3}
+    - {fileID: 8300000, guid: b7a210df23bd255428bdf4def67109f2, type: 3}
+    - {fileID: 130848, guid: 399bb4dca790fc349936e5daf4f4cf08, type: 3}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -26,131 +25,160 @@ MonoBehaviour:
     SerializationNodes:
     - Name: Event
       Entry: 7
-      Data: 0|System.Collections.Generic.List`1[[SkillEvent, Assembly-CSharp]], mscorlib
+      Data: 0|System.Collections.Generic.List`1[[CustomEvent, Assembly-CSharp]],
+        mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
       Data: 1|OnUseSkill, Assembly-CSharp
-    - Name: events
+    - Name: eventRequest
+      Entry: 6
+      Data: 
+    - Name: actions
       Entry: 7
-      Data: 2|System.Collections.Generic.List`1[[CustomBehaviour, Assembly-CSharp]],
+      Data: 2|System.Collections.Generic.List`1[[CustomAction, Assembly-CSharp]],
         mscorlib
     - Name: 
       Entry: 12
-      Data: 2
+      Data: 3
     - Name: 
       Entry: 7
-      Data: 3|FireProjectile, Assembly-CSharp
-    - Name: projectilePrefab
-      Entry: 10
-      Data: 0
-    - Name: projectileCount
+      Data: 3|Damage, Assembly-CSharp
+    - Name: key
+      Entry: 6
+      Data: 
+    - Name: target
       Entry: 3
       Data: 1
-    - Name: delayEachProjectile
-      Entry: 4
-      Data: 0.5
-    - Name: duration
-      Entry: 4
-      Data: 2
-    - Name: speed
-      Entry: 4
-      Data: 5
-    - Name: piercingCount
-      Entry: 3
-      Data: 5
-    - Name: explodeOnDestroy
-      Entry: 5
-      Data: true
-    - Name: OnProjectileHit
+    - Name: damage
       Entry: 7
-      Data: 4|OnProjectileHit, Assembly-CSharp
-    - Name: events
-      Entry: 7
-      Data: 5|System.Collections.Generic.List`1[[CustomBehaviour, Assembly-CSharp]],
-        mscorlib
-    - Name: 
-      Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 7
-      Data: 6|SpawnVFX, Assembly-CSharp
-    - Name: vfxToSpawn
-      Entry: 10
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 7|PlaySound, Assembly-CSharp
-    - Name: clip
-      Entry: 10
-      Data: 2
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Talent
-      Entry: 7
-      Data: 8|System.Collections.Generic.List`1[[Talent, Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 7
-      Data: 9|SpecialValueTalent, Assembly-CSharp
-    - Name: addEvent
+      Data: 4|ReferencedAttribute, Assembly-CSharp
+    - Name: inputValue
       Entry: 5
       Data: false
-    - Name: AddedEvent
+    - Name: value
+      Entry: 4
+      Data: 15
+    - Name: key
+      Entry: 1
+      Data: damage
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: HitEvent
       Entry: 7
-      Data: 10|System.Collections.Generic.List`1[[SkillEvent, Assembly-CSharp]],
+      Data: 5|OnHit, Assembly-CSharp
+    - Name: eventRequest
+      Entry: 6
+      Data: 
+    - Name: actions
+      Entry: 7
+      Data: 6|System.Collections.Generic.List`1[[CustomAction, Assembly-CSharp]],
         mscorlib
     - Name: 
       Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 7|IncreaseHealth, Assembly-CSharp
+    - Name: key
+      Entry: 6
+      Data: 
+    - Name: target
+      Entry: 3
       Data: 0
+    - Name: healAmount
+      Entry: 7
+      Data: 8|ReferencedAttribute, Assembly-CSharp
+    - Name: inputValue
+      Entry: 5
+      Data: true
+    - Name: value
+      Entry: 4
+      Data: 22
+    - Name: key
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: isPercentage
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: 
       Entry: 13
       Data: 
     - Name: 
       Entry: 8
       Data: 
-    - Name: specialAttributes
-      Entry: 7
-      Data: 11|System.Collections.Generic.List`1[[AttributeValue, Assembly-CSharp]],
-        mscorlib
     - Name: 
-      Entry: 12
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 9|PlaySound, Assembly-CSharp
+    - Name: key
+      Entry: 6
+      Data: 
+    - Name: target
+      Entry: 3
+      Data: 1
+    - Name: channel
+      Entry: 3
       Data: 0
+    - Name: clip
+      Entry: 10
+      Data: 0
+    - Name: modifyDb
+      Entry: 5
+      Data: false
+    - Name: desiredDb
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 10|SpawnVFX, Assembly-CSharp
+    - Name: key
+      Entry: 6
+      Data: 
+    - Name: target
+      Entry: 3
+      Data: 1
+    - Name: spawnedEffect
+      Entry: 10
+      Data: 1
+    - Name: rescale
+      Entry: 5
+      Data: false
+    - Name: scale
+      Entry: 7
+      Data: UnityEngine.Vector3, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: 
       Entry: 13
       Data: 
@@ -167,21 +195,28 @@ MonoBehaviour:
       Entry: 8
       Data: 
   id: fireball
-  icon: {fileID: 0}
-  cooldown: 5
-  manacost: 25
-  castTime: 0.5
-  castRange: 1000
-  walkToPoint: 1
+  icon: {fileID: 21300000, guid: c9250edf4111a480399f5e39edc635f7, type: 3}
   damageType: 1
   targetting: 1
-  affectedTargets: 02000000
-  specialAttributes:
+  affectedTargets: 0200000000000000
+  maxLevel: 3
+  cooldown:
+  - 10
+  - 4
+  - 4
+  manaCost:
+  - 10
+  - 5
+  - 10
+  castTime: 0
+  castRange:
+  - 1
+  walkToPoint: 1
+  attributeValues:
   - key: damage
-    value: 100
     type: 0
     isHidden: 0
-  - key: radius
-    value: 500
-    type: 0
-    isHidden: 0
+    value:
+    - 33
+    - 44
+    - 55

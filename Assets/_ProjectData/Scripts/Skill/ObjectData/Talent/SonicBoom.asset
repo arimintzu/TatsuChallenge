@@ -1,0 +1,106 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0fb0a5517ae1fa49b138d8585997863, type: 3}
+  m_Name: SonicBoom
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 8300000, guid: ca29b0e81a3a2f1438b88ce14d688239, type: 3}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: talents
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[TalentModifier, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 1|EventModifier, Assembly-CSharp
+    - Name: AddedEvent
+      Entry: 7
+      Data: 2|System.Collections.Generic.List`1[[CustomEvent, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 3|OnUseSkill, Assembly-CSharp
+    - Name: eventRequest
+      Entry: 6
+      Data: 
+    - Name: actions
+      Entry: 7
+      Data: 4|System.Collections.Generic.List`1[[CustomAction, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 5|PlaySound, Assembly-CSharp
+    - Name: key
+      Entry: 1
+      Data: blinkVFX
+    - Name: target
+      Entry: 3
+      Data: 0
+    - Name: channel
+      Entry: 3
+      Data: 0
+    - Name: clip
+      Entry: 10
+      Data: 0
+    - Name: modifyDb
+      Entry: 5
+      Data: false
+    - Name: desiredDb
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  id: fireMastery
+  icon: {fileID: 21300000, guid: fa1e2e0fbf69d4804a326872558cec08, type: 3}
+  affectedSkill:
+  - {fileID: 11400000, guid: 3197b1bf2c60d55488d6b010380f2f55, type: 2}

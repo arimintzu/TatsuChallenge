@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class PlayerHealth : MonoBehaviour, IDamageable
+public class PlayerHealth : MonoBehaviour, IDamageable, IHealable
 {
     [Title("Properties")]
     public float maxHealth = 100f;
@@ -41,7 +41,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         currentHealth -= damageRequest.finalDamage;
 
         if (damageRequest.finalDamage > 0)
-            HUDManager.Instance.PopDamage(transform, source, damageRequest.finalDamage, Color.red, 2f);
+            HUDManager.Instance.PopDamage(transform, damageRequest.finalDamage, Color.red, 1f);
 
         if (currentHealth > 0)
         {
@@ -104,5 +104,10 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     {
         Vector2 direction = transform.position - source.position;
         direction = direction.normalized;
+    }
+
+    public void Heal(float value, bool isPercentage)
+    {
+        HUDManager.Instance.PopDamage(transform, value, Color.green, 1f);
     }
 }

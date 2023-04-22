@@ -1,0 +1,217 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea33c6ce440c6ae4da7033ba57e31d0c, type: 3}
+  m_Name: LightningStrike
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 124998, guid: 16f393fea92971c4f9d155ff0adab5a5, type: 3}
+    - {fileID: 8300000, guid: a7afb83373df6164d96478fc3ca41e4f, type: 3}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: Event
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[CustomEvent, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 1|OnUseSkill, Assembly-CSharp
+    - Name: eventRequest
+      Entry: 6
+      Data: 
+    - Name: actions
+      Entry: 7
+      Data: 2|System.Collections.Generic.List`1[[CustomAction, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 3|AOESingleDamage, Assembly-CSharp
+    - Name: key
+      Entry: 6
+      Data: 
+    - Name: target
+      Entry: 3
+      Data: 0
+    - Name: damage
+      Entry: 7
+      Data: 4|ReferencedAttribute, Assembly-CSharp
+    - Name: inputValue
+      Entry: 5
+      Data: false
+    - Name: value
+      Entry: 4
+      Data: 0
+    - Name: key
+      Entry: 1
+      Data: damage
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: targetCount
+      Entry: 7
+      Data: 5|ReferencedAttribute, Assembly-CSharp
+    - Name: inputValue
+      Entry: 5
+      Data: false
+    - Name: value
+      Entry: 4
+      Data: 0
+    - Name: key
+      Entry: 1
+      Data: count
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: delayStrike
+      Entry: 4
+      Data: 0.1
+    - Name: HitEvent
+      Entry: 7
+      Data: 6|OnHit, Assembly-CSharp
+    - Name: eventRequest
+      Entry: 6
+      Data: 
+    - Name: actions
+      Entry: 7
+      Data: 7|System.Collections.Generic.List`1[[CustomAction, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: 8|SpawnVFX, Assembly-CSharp
+    - Name: key
+      Entry: 6
+      Data: 
+    - Name: target
+      Entry: 3
+      Data: 1
+    - Name: spawnedEffect
+      Entry: 10
+      Data: 0
+    - Name: rescale
+      Entry: 5
+      Data: true
+    - Name: scale
+      Entry: 7
+      Data: UnityEngine.Vector3, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 3
+    - Name: 
+      Entry: 4
+      Data: 3
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 9|PlaySound, Assembly-CSharp
+    - Name: key
+      Entry: 6
+      Data: 
+    - Name: target
+      Entry: 3
+      Data: 1
+    - Name: channel
+      Entry: 3
+      Data: 0
+    - Name: clip
+      Entry: 10
+      Data: 1
+    - Name: modifyDb
+      Entry: 5
+      Data: false
+    - Name: desiredDb
+      Entry: 4
+      Data: 1.93
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  id: lightning_strike
+  icon: {fileID: 21300000, guid: b6e135c3e56af4a678b1a8f58ab240e8, type: 3}
+  damageType: 1
+  targetting: 3
+  affectedTargets: 0200000000000000
+  maxLevel: 3
+  cooldown:
+  - 10
+  - 4
+  - 4
+  manaCost:
+  - 10
+  - 5
+  - 10
+  castTime: 0
+  castRange:
+  - 1
+  walkToPoint: 1
+  attributeValues:
+  - key: damage
+    type: 0
+    isHidden: 0
+    value:
+    - 33
+    - 44
+    - 55
+  - key: count
+    type: 0
+    isHidden: 0
+    value:
+    - 2
+    - 3
+    - 4

@@ -7,12 +7,13 @@ using UnityEngine;
 
 public abstract class TalentModifier 
 {
-    [PropertyOrder(998)] public bool addEvent;
-    [ListDrawerSettings(ShowIndexLabels = false),
-        PropertyOrder(999), ShowIf(nameof(addEvent))] public List<SkillEvent> AddedEvent = new List<SkillEvent>();
 }
 
-public class DefaultModifier : TalentModifier { }
+public class EventModifier : TalentModifier
+{
+    [ListDrawerSettings(ShowIndexLabels = false), PropertyOrder(999)]
+    public List<CustomEvent> AddedEvent = new List<CustomEvent>();
+}
 
 public class SpecialValueTalent : TalentModifier
 {
@@ -21,10 +22,24 @@ public class SpecialValueTalent : TalentModifier
 
 public class StatsTalent : TalentModifier
 {
-    public List<AttributeValue> specialAttributes;
+    public List<StatAttributeValue> statsAdded = new List<StatAttributeValue>();
 }
 
 public class DefaultValueTalent : TalentModifier
 {
-    public List<AttributeValue> specialAttributes;
+    public List<DefaulAttributeValue> modifiedAttributes = new List<DefaulAttributeValue>();
+}
+
+public enum DefaultAttributeType
+{
+    Cooldown,
+    ManaCost,
+    CastRange,
+    CastTime,
+}
+
+public enum Stats
+{
+    CDReduction,
+    ManaCostReduction,
 }
