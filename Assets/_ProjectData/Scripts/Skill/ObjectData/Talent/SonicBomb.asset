@@ -93,7 +93,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 6|AOESingleDamage, Assembly-CSharp
+      Data: 6|AOEDamage, Assembly-CSharp
     - Name: key
       Entry: 6
       Data: 
@@ -111,43 +111,67 @@ MonoBehaviour:
       Data: 7|ReferencedAttribute, Assembly-CSharp
     - Name: inputValue
       Entry: 5
-      Data: false
+      Data: true
     - Name: value
       Entry: 4
-      Data: 0
+      Data: 50
     - Name: key
       Entry: 6
       Data: 
     - Name: 
       Entry: 8
       Data: 
-    - Name: targetCount
+    - Name: radius
       Entry: 7
       Data: 8|ReferencedAttribute, Assembly-CSharp
     - Name: inputValue
       Entry: 5
-      Data: false
+      Data: true
     - Name: value
       Entry: 4
-      Data: 0
+      Data: 3
     - Name: key
       Entry: 6
       Data: 
     - Name: 
       Entry: 8
       Data: 
-    - Name: delayStrike
-      Entry: 4
-      Data: 0.1
+    - Name: layer
+      Entry: 7
+      Data: UnityEngine.LayerMask, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 8
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: debugArea
+      Entry: 5
+      Data: false
+    - Name: collidedTags
+      Entry: 7
+      Data: 9|System.Collections.Generic.List`1[[System.String, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 1
+      Data: Enemy
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: HitEvent
       Entry: 7
-      Data: 9|OnHit, Assembly-CSharp
+      Data: 10|OnHit, Assembly-CSharp
     - Name: eventRequest
       Entry: 6
       Data: 
     - Name: actions
       Entry: 7
-      Data: 10|System.Collections.Generic.List`1[[CustomAction, Assembly-CSharp]],
+      Data: 11|System.Collections.Generic.List`1[[CustomAction, Assembly-CSharp]],
         mscorlib
     - Name: 
       Entry: 12
